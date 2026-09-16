@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-canvas: #F4F1EA;
+    --bg-card: #FFFFFF;
+    --ink-black: #121212;
+    --electric-lime: #CCFF00;
+    --hazard-orange: #FF4500;
+    --cyber-yellow: #FFD600;
+    --cyber-cyan: #00F0FF;
+    --hot-pink: #FF2E63;
+    --manila-folder: #EAE5D9;
+
+    /* Strong custom easing curves */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--ink-black);
+    font-family: var(--font-jakarta), system-ui, sans-serif;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Grid / Dot Tactical Backgrounds */
+.bg-grid-tactical {
+  background-image: radial-gradient(#121212 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-blueprint {
+  background-color: #0F1115;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Neo-Brutalist Hard Shadows */
+.shadow-hard-sm {
+  box-shadow: 2px 2px 0px 0px #121212;
+}
+
+.shadow-hard {
+  box-shadow: 4px 4px 0px 0px #121212;
+}
+
+.shadow-hard-lg {
+  box-shadow: 6px 6px 0px 0px #121212;
+}
+
+.shadow-hard-xl {
+  box-shadow: 8px 8px 0px 0px #121212;
+}
+
+.shadow-hard-lime {
+  box-shadow: 4px 4px 0px 0px #CCFF00;
+}
+
+.shadow-hard-orange {
+  box-shadow: 4px 4px 0px 0px #FF4500;
+}
+
+.shadow-hard-cyan {
+  box-shadow: 4px 4px 0px 0px #00F0FF;
+}
+
+.shadow-hard-white {
+  box-shadow: 4px 4px 0px 0px #FFFFFF;
+}
+
+/* Tactile Interactive Buttons */
+.btn-neo {
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+  box-shadow: 4px 4px 0px 0px #121212;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-neo:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px 0px #121212;
+  }
+}
+
+.btn-neo:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 0px #121212;
+}
+
+.btn-neo-lg {
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+  box-shadow: 6px 6px 0px 0px #121212;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-neo-lg:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px 0px #121212;
+  }
+}
+
+.btn-neo-lg:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0px 0px #121212;
+}
+
+/* Rubber Stamp Effect */
+.stamp-badge {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  transform: rotate(-2deg);
+  border: 3px solid #121212;
+}
+
+/* Dossier Tape Effect */
+.tape-strip {
+  background: rgba(255, 230, 0, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  transform: rotate(-1.5deg);
+}
+
+/* Scanline / Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 14s linear infinite;
+}
+
+/* Font helpers */
+.font-display {
+  font-family: var(--font-space), system-ui, sans-serif;
+}
+
+.font-mono-tactical {
+  font-family: var(--font-mono), monospace;
+}
+
+.font-body {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
 }

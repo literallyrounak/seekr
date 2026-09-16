@@ -42,7 +42,6 @@ export default function Home() {
 
           <div className="relative inline-block">
             <h1 className="text-5xl md:text-6xl font-display font-black tracking-tight text-[#121212] uppercase leading-none">
-              {/* SEEKR<br /> */}
               <span className="bg-[#CCFF00] px-3 border-4 border-[#121212] shadow-hard inline-block transform rotate-1 mt-1">
                 SEEKR
               </span>

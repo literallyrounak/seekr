@@ -31,8 +31,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "TARGET HUNT // Real-World Social Party Game",
-  description: "High-contrast social discovery party game. Scan QR, answer 5 questions, find your secret target.",
+  title: "Seekr",
+  description: "Social party game. Scan, answer questions, find your target in the room.",
 };
 
 export default function RootLayout({
